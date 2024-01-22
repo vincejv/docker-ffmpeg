@@ -8,8 +8,10 @@ ARG FFMPEG_VERSION
 
 # common env
 ENV \
+  RUSTFLAGS="-C target-cpu=sandybridge"
+  CC="gcc -Ofast -funsafe-math-optimizations -ffinite-math-only -fno-rounding-math -fexcess-precision=fast -funroll-loops -ffunction-sections -fdata-sections -pipe -march=sandybridge -mtune=sandybridge"
   DEBIAN_FRONTEND="noninteractive" \
-  MAKEFLAGS="-j4"
+  MAKEFLAGS="-j5"
 
 # versions
 ENV \
